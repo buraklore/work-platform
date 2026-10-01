@@ -1,0 +1,8 @@
+<!-- Supabase → Authentication → Email Templates → "Magic Link". Konu: Giriş linkin -->
+<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#171923">
+  <h1 style="font-size:22px;margin:0 0 12px">Giriş linkin</h1>
+  <p style="font-size:15px;line-height:1.6;color:#5e6275;margin:0 0 24px">Şifresiz giriş için butona tıkla. Link tek kullanımlıktır ve 1 saat geçerlidir.</p>
+  <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=magiclink&next={{ .RedirectTo }}"
+     style="display:inline-block;background:#3b4fe4;color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:600">Giriş yap</a>
+  <p style="font-size:13px;color:#8a8fa3;margin:32px 0 0">Bu isteği sen yapmadıysan bu e-postayı yok sayabilirsin; hesabın güvende.</p>
+</div>
