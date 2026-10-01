@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Tokens: "İznik" — cobalt ink, turquoise done, coral overdue, on paper white ── */
+:root {
+  --bg: #fafafb;
+  --surface: #ffffff;
+  --raised: #f3f4f7;
+  --line: #e6e7ec;
+  --line-strong: #d5d7df;
+  --fg: #171923;
+  --muted: #5e6275;
+  --faint: #8e92a4;
+  --accent: #3b4fe4;
+  --accent-hover: #2f41c9;
+  --accent-fg: #ffffff;
+  --accent-soft: #eceefd;
+  --done: #12998f;
+  --done-soft: #e3f5f3;
+  --danger: #d8432f;
+  --danger-soft: #fcebe8;
+  --warn: #b87a06;
+  --warn-soft: #fbf1dc;
+  --shadow-pop: 0 1px 2px rgb(23 25 35 / 0.06), 0 8px 24px -6px rgb(23 25 35 / 0.14);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #101219;
+  --surface: #161922;
+  --raised: #1d212c;
+  --line: #262b38;
+  --line-strong: #353b4b;
+  --fg: #e8e9ef;
+  --muted: #a1a5b7;
+  --faint: #6d7285;
+  --accent: #8a97ff;
+  --accent-hover: #a3adff;
+  --accent-fg: #0d1030;
+  --accent-soft: #232a52;
+  --done: #3cc8b9;
+  --done-soft: #173532;
+  --danger: #ff7a68;
+  --danger-soft: #3d201c;
+  --warn: #e9b044;
+  --warn-soft: #3a2d12;
+  --shadow-pop: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -8px rgb(0 0 0 / 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-done: var(--done);
+  --color-done-soft: var(--done-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-onest), ui-sans-serif, sans-serif;
+  --shadow-pop: var(--shadow-pop);
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.8125rem;
+  --text-sm--line-height: 1.125rem;
+  --text-base: 0.875rem;
+  --text-base--line-height: 1.375rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Parsed tokens inside the quick-add input */
+.parse-mark {
+  border-radius: 3px;
+  box-shadow: inset 0 -2px 0 currentColor;
+}
+
+.tiptap {
+  outline: none;
+  min-height: 6rem;
+}
+.tiptap p {
+  margin: 0.25rem 0;
+}
+.tiptap ul,
+.tiptap ol {
+  padding-left: 1.25rem;
+  margin: 0.25rem 0;
+}
+.tiptap ul {
+  list-style: disc;
+}
+.tiptap ol {
+  list-style: decimal;
+}
+.tiptap h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.25rem;
+}
+.tiptap code {
+  background: var(--raised);
+  border-radius: 4px;
+  padding: 0 0.25rem;
+  font-size: 0.8125rem;
+}
+.tiptap blockquote {
+  border-left: 2px solid var(--line-strong);
+  padding-left: 0.75rem;
+  color: var(--muted);
+}
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--faint);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
